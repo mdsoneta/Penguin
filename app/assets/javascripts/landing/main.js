@@ -2,8 +2,8 @@
  * User package module.
  * Manages all sub-modules so other RequireJS modules only have to import the package.
  */
-define(["angular", "./routes", "./services"], function(angular) {
-  "use strict";
+define(["angular", "./routes", "./services"], function (angular) {
+    "use strict";
 
-  return angular.module("yourprefix.landing", ["ngCookies", "ngRoute", "landing.routes", "landing.services"]);
+    return angular.module("yourprefix.landing", ["ngCookies", "ngRoute", "landing.routes", "landing.services"]);
 });
