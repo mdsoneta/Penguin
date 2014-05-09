@@ -17,7 +17,7 @@ object Landing extends Controller {
     WS.url(stockQuoteUrl).get().map {
       response =>
         println(response.json.toString())
-        Ok(views.html.landing.render("obj", response.json.toString()))
+        Ok(response.json.toString())
 
     }
   }

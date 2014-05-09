@@ -5,28 +5,17 @@ define(["angular", "common"], function (angular) {
     "use strict";
 
     var mod = angular.module("landing.services", ["yourprefix.common"]);
-    mod.factory("userService", ["$http", "$q", "playRoutes", function ($http, $q, playRoutes) {
+    mod.factory("landingService", ["$http", "$q", "playRoutes", function ($http, $q, playRoutes) {
         var user, token;
         return {
-            loginUser: function (credentials) {
-                return playRoutes.controllers.Application.login().post(credentials).then(function (response) {
-                    // return promise so we can chain easily
-                    token = response.data.token;
-                    // in a real app we could use the token to fetch the user data
-                    return playRoutes.controllers.Users.user(3).get();
-                }).then(function (response) {
-                    user = response.data; // Extract user data from user() request
-                    user.email = credentials.email;
-                    return user;
-                });
-            },
-            logout: function () {
-                // Logout on server in a real app
-                user = undefined;
-            },
-            getUser: function () {
-                return user;
-            }
+              landing: function()
+              {
+                 return playRoutes.controllers.Landing.landing().post().then(function (response)
+                  {
+                      console.log("response from services >>" + response.data.query.results.quote.Name)
+                       response.data.query.results.quote.Name
+                  });
+              }
         };
     }]);
     /**
