@@ -1,5 +1,5 @@
 /**
- * User service, exposes user model to the rest of the app.
+ * Landing service, exposes user model to the rest of the app.
  */
 define(["angular", "common"], function (angular) {
     "use strict";
@@ -8,7 +8,7 @@ define(["angular", "common"], function (angular) {
         return {
             landing: function () {
                 return playRoutes.controllers.Landing.landing().post().then(function (response) {
-                    return response.data.query.results.quote.Name;
+                    return response.data.query.results.quote;
                 });
             }
         }
